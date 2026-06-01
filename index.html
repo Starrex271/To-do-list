@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <title>Projects</title>
+</head>
+
+<body>
+    <div class="section">
+        <!----side bar dark----->
+        <div class="sidebar-dark">
+            <div class="icon"><a href="#"><img src="images/Ovals.png" alt=""></a></div>
+            <ul>
+                <li><a href="#"><img src="images/Logo (1).png" alt=""></a> </li>
+                <li><a href="#"><i class="ph ph-squares-four"></i></a> </li>
+                <li><a href="#"><i class="ph ph-user"></i></a> </li>
+                <li><a href="#"><i class="ph ph-calendar-blank"></i></a></li>
+                <li><a href="#"><i class="ph ph-presentation-chart"></i></a></li>
+                <li><a href="#"><i class="ph ph-cloud-arrow-up"></i></a></li>
+                <li><a href="#"><i class="ph ph-map-trifold"></i></a></li>
+                <li><a href="#"><i class="ph ph-sliders"></i></a></li>
+            </ul>
+            <div class="return"><i class="ph ph-sign-out"></i></div>
+        </div>
+        <!--------projects---------->
+        <div class="projects">
+            <div class="header">
+                <h1>Projects</h1>
+                <a href="#"><img src="images/Icon (12).png" alt=""></a>
+            </div>
+            <div>
+                <div class="teams">
+                    <span>Team</span>
+                    <i class="ph ph-caret-right"></i>
+                </div>
+                <div class="projects-dropdown">
+                    <a href="" onclick="toggleDropdown(event, 'projects-list', this)"><span>Projects</span>
+                        <i class="ph ph-caret-right"></i></a>
+                </div>
+                <div class="projects-list" id="projects-list">
+                    <div><img src="images/Lines.png" alt=""></div>
+                    <ul>
+                        <li><a href="#">All projects (3)</a></li>
+                        <li><a href="#">Design system</a></li>
+                        <li><a href="#">User flow</a></li>
+                        <li><a href="#">Ux research</a></li>
+                    </ul>
+                </div>
+                <div class="projects-dropdown">
+                    <a href="" onclick="toggleDropdown(event, 'tasks-list', this)"><span>Tasks</span>
+                        <i class="ph ph-caret-right"></i></a>
+                </div>
+                <div class="projects-list" id="tasks-list">
+                    <div><img src="images/Lines.png" alt=""></div>
+                    <ul>
+                        <li><a href="#">All tasks (11)</a></li>
+                        <li><a href="#">To do (4)</a></li>
+                        <li><a href="#">In progress (4)</a></li>
+                        <li><a href="#">Done (3)</a></li>
+                    </ul>
+                </div>
+                <div class="teams">
+                    <span>Reminders</span>
+                    <i class="ph ph-caret-right"></i>
+                </div>
+                <div class="teams">
+                    <span>Messengers</span>
+                    <i class="ph ph-caret-right"></i>
+                </div>
+            </div>
+            <div id="toggle-track" onclick="switchMode()"
+                style="display:flex;align-items:center;background:#1a1a1a;border-radius:999px;padding:4px;gap:4px;cursor:pointer;user-select:none;width:fit-content;">
+                <div id="light-pill"
+                    style="display:flex;align-items:center;gap:6px;padding:7px 16px;border-radius:999px;background:#fff;transition:background 0.2s;">
+                    <i class="ti ti-sun" style="font-size:15px;color:#1a1a1a;"></i>
+                    <span style="font-size:14px;font-weight:500;color:#1a1a1a;">Light</span>
+                </div>
+                <div id="dark-pill"
+                    style="display:flex;align-items:center;gap:6px;padding:7px 16px;border-radius:999px;background:transparent;transition:background 0.2s;">
+                    <i class="ti ti-moon" id="moon-icon" style="font-size:15px;color:#888;"></i>
+                    <span id="dark-label" style="font-size:14px;font-weight:500;color:#888;">Dark</span>
+                </div>
+            </div>
+        </div>
+        <!-------body------->
+        <section>
+            <div class="nav">
+                <div class="body-head">
+                    <h1>Welcome Back, Vincent 👋</h1>
+                    <div class="nav-list">
+                        <ul>
+                            <li><a href="#"><i class="ph ph-magnifying-glass"></i></a></li>
+                            <li><a href="#"><i class="ph ph-bell"></i></a></li>
+                            <li><a href="#"><i class="ph ph-calendar-blank"></i><span>19 May 2025</span></a></li>
+                        </ul>
+                        <div>
+                            <img src="images/Profile.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="menu">
+                    <div class="menu-1">
+                        <a href="#"><i class="ph ph-rows"> </i><span> Board view</span></a>
+                        <a href="#"><i class="ph ph-plus-circle"> </i><span> Add view</span></a>
+                    </div>
+                    <div class="menu-2">
+                        <ul>
+                            <li><a href=""><span>Fliter</span></a></li>
+                            <li><a href=""><span>Sort</span></a></li>
+                            <li><i class="ph ph-dots-three-circle"></i></li>
+                        </ul>
+                        <button>New template</button>
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <br>
+
+                <div class="board">
+
+                    <!-- TO DO COLUMN -->
+                    <div class="column">
+                        <div class="column-header">
+                            <span class="column-title">To do (4)</span>
+                            <button class="add-task-btn"><span>+</span> Add new task</button>
+                        </div>
+                        <div class="cards">
+
+                            <!-- Card 1 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <span class="card-title">Design new ui presentation</span>
+                                    <button class="menu-btn">···</button>
+                                </div>
+                                <div class="card-subtitle">Dribbble marketing</div>
+                                <div class="progress-section">
+                                    <div class="progress-label-row">
+                                        <span class="progress-label">
+                                            <svg class="icon-list" viewBox="0 0 16 16" fill="none">
+                                                <rect x="2" y="3" width="12" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="7" width="9" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="11" width="6" height="2" rx="1" fill="#888" />
+                                            </svg>
+                                            Progress
+                                        </span>
+                                        <span class="progress-value">7/10</span>
+                                    </div>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill bar-orange" style="width:70%"></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <span class="date-badge">24 Aug 2022</span>
+                                    <div class="footer-right">
+                                        <span class="meta-item">
+                                            <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                                                <path
+                                                    d="M8 2C5.79 2 4 3.79 4 6c0 3 4 8 4 8s4-5 4-8c0-2.21-1.79-4-4-4zm0 5.5A1.5 1.5 0 1 1 8 4a1.5 1.5 0 0 1 0 3.5z"
+                                                    fill="#bbb" />
+                                            </svg>
+                                            7
+                                        </span>
+                                        <span class="meta-item">
+                                            <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                                                <path d="M4 2h8a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5l-3 2V4a2 2 0 0 1 2-2z"
+                                                    stroke="#bbb" stroke-width="1.5" fill="none" />
+                                            </svg>
+                                            2
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <span class="card-title">Add more ui/ux mockups</span>
+                                    <button class="menu-btn">···</button>
+                                </div>
+                                <div class="card-subtitle">Pinterest promotion</div>
+                                <div class="progress-section">
+                                    <div class="progress-label-row">
+                                        <span class="progress-label">
+                                            <svg class="icon-list" viewBox="0 0 16 16" fill="none">
+                                                <rect x="2" y="3" width="12" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="7" width="9" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="11" width="6" height="2" rx="1" fill="#888" />
+                                            </svg>
+                                            Progress
+                                        </span>
+                                        <span class="progress-value">4/10</span>
+                                    </div>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill bar-orange" style="width:40%"></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <span class="date-badge overdue">25 Aug 2022</span>
+                                    <div class="footer-right">
+                                        <div class="avatars">
+                                            <div class="avatar" style="background:#7c8fdb;"></div>
+                                            <div class="avatar" style="background:#e8a87c;"></div>
+                                            <div class="avatar avatar-count">+2</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <span class="card-title">Design few mobile screens</span>
+                                    <button class="menu-btn">···</button>
+                                </div>
+                                <div class="card-subtitle">Dropbox mobile app</div>
+                                <div class="progress-section">
+                                    <div class="progress-label-row">
+                                        <span class="progress-label">
+                                            <svg class="icon-list" viewBox="0 0 16 16" fill="none">
+                                                <rect x="2" y="3" width="12" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="7" width="9" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="11" width="6" height="2" rx="1" fill="#888" />
+                                            </svg>
+                                            Progress
+                                        </span>
+                                        <span class="progress-value">3/10</span>
+                                    </div>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill bar-red" style="width:30%"></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <span class="date-badge overdue">26 Aug 2022</span>
+                                    <div class="footer-right">
+                                        <span class="meta-item">
+                                            <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                                                <path
+                                                    d="M8 2C5.79 2 4 3.79 4 6c0 3 4 8 4 8s4-5 4-8c0-2.21-1.79-4-4-4zm0 5.5A1.5 1.5 0 1 1 8 4a1.5 1.5 0 0 1 0 3.5z"
+                                                    fill="#bbb" />
+                                            </svg>
+                                            6
+                                        </span>
+                                        <span class="meta-item">
+                                            <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                                                <path d="M4 2h8a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5l-3 2V4a2 2 0 0 1 2-2z"
+                                                    stroke="#bbb" stroke-width="1.5" fill="none" />
+                                            </svg>
+                                            4
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <span class="card-title">Create a tweet and promote</span>
+                                    <button class="menu-btn">···</button>
+                                </div>
+                                <div class="card-subtitle">Twitter marketing</div>
+                                <div class="progress-section">
+                                    <div class="progress-label-row">
+                                        <span class="progress-label">
+                                            <svg class="icon-list" viewBox="0 0 16 16" fill="none">
+                                                <rect x="2" y="3" width="12" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="7" width="9" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="11" width="6" height="2" rx="1" fill="#888" />
+                                            </svg>
+                                            Progress
+                                        </span>
+                                        <span class="progress-value">2/14</span>
+                                    </div>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill bar-red" style="width:14%"></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <span class="date-badge overdue">27 Aug 2022</span>
+                                    <div class="footer-right">
+                                        <div class="avatars">
+                                            <div class="avatar" style="background:#7c8fdb;"></div>
+                                            <div class="avatar" style="background:#e8a87c;"></div>
+                                            <div class="avatar avatar-count">+2</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- IN PROGRESS COLUMN -->
+                    <div class="column">
+                        <div class="column-header">
+                            <span class="column-title">In progress (4)</span>
+                            <button class="add-task-btn"><span>+</span> Add new task</button>
+                        </div>
+                        <div class="cards">
+
+                            <!-- Card 1 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <span class="card-title">Design system update</span>
+                                    <button class="menu-btn">···</button>
+                                </div>
+                                <div class="card-subtitle">Oreo website project</div>
+                                <div class="progress-section">
+                                    <div class="progress-label-row">
+                                        <span class="progress-label">
+                                            <svg class="icon-list" viewBox="0 0 16 16" fill="none">
+                                                <rect x="2" y="3" width="12" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="7" width="9" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="11" width="6" height="2" rx="1" fill="#888" />
+                                            </svg>
+                                            Progress
+                                        </span>
+                                        <span class="progress-value">3/10</span>
+                                    </div>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill bar-red" style="width:30%"></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <span class="date-badge overdue">12 Nov 2022</span>
+                                    <div class="footer-right">
+                                        <div class="avatars">
+                                            <div class="avatar" style="background:#7c8fdb;"></div>
+                                            <div class="avatar" style="background:#e8a87c;"></div>
+                                            <div class="avatar avatar-count">+2</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <span class="card-title">Create brand guideline</span>
+                                    <button class="menu-btn">···</button>
+                                </div>
+                                <div class="card-subtitle">Oreo branding project</div>
+                                <div class="progress-section">
+                                    <div class="progress-label-row">
+                                        <span class="progress-label">
+                                            <svg class="icon-list" viewBox="0 0 16 16" fill="none">
+                                                <rect x="2" y="3" width="12" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="7" width="9" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="11" width="6" height="2" rx="1" fill="#888" />
+                                            </svg>
+                                            Progress
+                                        </span>
+                                        <span class="progress-value">7/10</span>
+                                    </div>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill bar-orange" style="width:70%"></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <span class="date-badge">13 Nov 2022</span>
+                                    <div class="footer-right">
+                                        <span class="meta-item">
+                                            <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                                                <path
+                                                    d="M8 2C5.79 2 4 3.79 4 6c0 3 4 8 4 8s4-5 4-8c0-2.21-1.79-4-4-4zm0 5.5A1.5 1.5 0 1 1 8 4a1.5 1.5 0 0 1 0 3.5z"
+                                                    fill="#bbb" />
+                                            </svg>
+                                            2
+                                        </span>
+                                        <span class="meta-item">
+                                            <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                                                <path d="M4 2h8a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5l-3 2V4a2 2 0 0 1 2-2z"
+                                                    stroke="#bbb" stroke-width="1.5" fill="none" />
+                                            </svg>
+                                            13
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <span class="card-title">Create wireframe for ios app</span>
+                                    <button class="menu-btn">···</button>
+                                </div>
+                                <div class="card-subtitle">Oreo ios app project</div>
+                                <div class="progress-section">
+                                    <div class="progress-label-row">
+                                        <span class="progress-label">
+                                            <svg class="icon-list" viewBox="0 0 16 16" fill="none">
+                                                <rect x="2" y="3" width="12" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="7" width="9" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="11" width="6" height="2" rx="1" fill="#888" />
+                                            </svg>
+                                            Progress
+                                        </span>
+                                        <span class="progress-value">4/10</span>
+                                    </div>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill bar-orange" style="width:40%"></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <span class="date-badge overdue">14 Nov 2022</span>
+                                    <div class="footer-right">
+                                        <div class="avatars">
+                                            <div class="avatar" style="background:#7c8fdb;"></div>
+                                            <div class="avatar" style="background:#e8a87c;"></div>
+                                            <div class="avatar avatar-count">+2</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <span class="card-title">Create ui kit for layout</span>
+                                    <button class="menu-btn">···</button>
+                                </div>
+                                <div class="card-subtitle">Crypto mobile app</div>
+                                <div class="progress-section">
+                                    <div class="progress-label-row">
+                                        <span class="progress-label">
+                                            <svg class="icon-list" viewBox="0 0 16 16" fill="none">
+                                                <rect x="2" y="3" width="12" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="7" width="9" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="11" width="6" height="2" rx="1" fill="#888" />
+                                            </svg>
+                                            Progress
+                                        </span>
+                                        <span class="progress-value">3/10</span>
+                                    </div>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill bar-red" style="width:30%"></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <span class="date-badge overdue">15 Nov 2022</span>
+                                    <div class="footer-right">
+                                        <span class="meta-item">
+                                            <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                                                <path
+                                                    d="M8 2C5.79 2 4 3.79 4 6c0 3 4 8 4 8s4-5 4-8c0-2.21-1.79-4-4-4zm0 5.5A1.5 1.5 0 1 1 8 4a1.5 1.5 0 0 1 0 3.5z"
+                                                    fill="#bbb" />
+                                            </svg>
+                                            23
+                                        </span>
+                                        <span class="meta-item">
+                                            <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                                                <path d="M4 2h8a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5l-3 2V4a2 2 0 0 1 2-2z"
+                                                    stroke="#bbb" stroke-width="1.5" fill="none" />
+                                            </svg>
+                                            12
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- DONE COLUMN -->
+                    <div class="column">
+                        <div class="column-header">
+                            <span class="column-title">Done (3)</span>
+                            <button class="add-task-btn"><span>+</span> Add new task</button>
+                        </div>
+                        <div class="cards">
+
+                            <!-- Card 1 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <span class="card-title">Add product to the market</span>
+                                    <button class="menu-btn">···</button>
+                                </div>
+                                <div class="card-subtitle">Ui8 marketplace</div>
+                                <div class="progress-section">
+                                    <div class="progress-label-row">
+                                        <span class="progress-label">
+                                            <svg class="icon-list" viewBox="0 0 16 16" fill="none">
+                                                <rect x="2" y="3" width="12" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="7" width="9" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="11" width="6" height="2" rx="1" fill="#888" />
+                                            </svg>
+                                            Progress
+                                        </span>
+                                        <span class="progress-value">10/10</span>
+                                    </div>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill bar-green" style="width:100%"></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <span class="date-badge">6 Jan 2022</span>
+                                    <div class="footer-right">
+                                        <span class="meta-item">
+                                            <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                                                <path
+                                                    d="M8 2C5.79 2 4 3.79 4 6c0 3 4 8 4 8s4-5 4-8c0-2.21-1.79-4-4-4zm0 5.5A1.5 1.5 0 1 1 8 4a1.5 1.5 0 0 1 0 3.5z"
+                                                    fill="#bbb" />
+                                            </svg>
+                                            1
+                                        </span>
+                                        <span class="meta-item">
+                                            <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                                                <path d="M4 2h8a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5l-3 2V4a2 2 0 0 1 2-2z"
+                                                    stroke="#bbb" stroke-width="1.5" fill="none" />
+                                            </svg>
+                                            5
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <span class="card-title">Launch product promotion</span>
+                                    <button class="menu-btn">···</button>
+                                </div>
+                                <div class="card-subtitle">Kickstarter campaign</div>
+                                <div class="progress-section">
+                                    <div class="progress-label-row">
+                                        <span class="progress-label">
+                                            <svg class="icon-list" viewBox="0 0 16 16" fill="none">
+                                                <rect x="2" y="3" width="12" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="7" width="9" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="11" width="6" height="2" rx="1" fill="#888" />
+                                            </svg>
+                                            Progress
+                                        </span>
+                                        <span class="progress-value">10/10</span>
+                                    </div>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill bar-green" style="width:100%"></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <span class="date-badge">7 Jan 2022</span>
+                                    <div class="footer-right">
+                                        <span class="meta-item">
+                                            <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                                                <path
+                                                    d="M8 2C5.79 2 4 3.79 4 6c0 3 4 8 4 8s4-5 4-8c0-2.21-1.79-4-4-4zm0 5.5A1.5 1.5 0 1 1 8 4a1.5 1.5 0 0 1 0 3.5z"
+                                                    fill="#bbb" />
+                                            </svg>
+                                            17
+                                        </span>
+                                        <span class="meta-item">
+                                            <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                                                <path d="M4 2h8a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5l-3 2V4a2 2 0 0 1 2-2z"
+                                                    stroke="#bbb" stroke-width="1.5" fill="none" />
+                                            </svg>
+                                            3
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <span class="card-title">Make twitter banner</span>
+                                    <button class="menu-btn">···</button>
+                                </div>
+                                <div class="card-subtitle">Twitter marketing</div>
+                                <div class="progress-section">
+                                    <div class="progress-label-row">
+                                        <span class="progress-label">
+                                            <svg class="icon-list" viewBox="0 0 16 16" fill="none">
+                                                <rect x="2" y="3" width="12" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="7" width="9" height="2" rx="1" fill="#888" />
+                                                <rect x="2" y="11" width="6" height="2" rx="1" fill="#888" />
+                                            </svg>
+                                            Progress
+                                        </span>
+                                        <span class="progress-value">10/10</span>
+                                    </div>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill bar-green" style="width:100%"></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <span class="date-badge">8 Jan 2022</span>
+                                    <div class="footer-right">
+                                        <div class="avatars">
+                                            <div class="avatar" style="background:#7c8fdb;"></div>
+                                            <div class="avatar" style="background:#e8a87c;"></div>
+                                            <div class="avatar avatar-count">+2</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Drag placeholder -->
+                            <div class="drag-placeholder">Drag your task here...</div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+    </div>
+    </section>
+
+</body>
+<script src="script.js"></script>
+
+</html>
