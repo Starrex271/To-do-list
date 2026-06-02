@@ -295,11 +295,11 @@ body {
 
 #toggle-track {
     position: absolute;
-    bottom: -19em;
+    top: 53em;
 }
 
 .nav {
-    width: 6fr;
+    width: 55em;
     height: 57em;
     margin-left: -7.5em;
     background: var(--nav-bg);
@@ -763,6 +763,7 @@ hr {
     vertical-align: middle;
     margin-right: 2px;
 }
+
 /* ===== DARK MODE TEXT OVERRIDES ===== */
 body.dark .nav-list a span,
 body.dark .menu-2 a span,
@@ -782,6 +783,10 @@ body.dark .column-title {
 
 body.dark .add-task-btn {
     color: #b0b0c0;
+}
+
+body.dark .projects-list img {
+    filter: brightness(0) invert(1) sepia(1) hue-rotate(200deg) saturate(150%);
 }
 
 body.dark .add-task-btn span {
@@ -852,7 +857,7 @@ body.dark .menu-btn:hover {
     z-index: 9999;
     pointer-events: none;
     border-radius: 14px;
-    box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
     opacity: 0.92;
     transform: rotate(2deg) scale(1.03);
     transition: transform 0.1s;
@@ -871,12 +876,12 @@ body.dark .drag-ghost {
     border-radius: 999px;
     margin: 4px 0;
     pointer-events: none;
-    box-shadow: 0 0 6px rgba(99,102,241,0.5);
+    box-shadow: 0 0 6px rgba(99, 102, 241, 0.5);
 }
 
 /* Highlight .cards container when dragging over it */
 .cards.drag-over {
-    background: rgba(99,102,241,0.05);
+    background: rgba(99, 102, 241, 0.05);
     border-radius: 10px;
     transition: background 0.15s;
 }
@@ -906,7 +911,7 @@ body.dark .drag-ghost {
 .card.dragging {
     opacity: 0.4;
     transform: scale(0.98);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
 
 .cards.drag-over {

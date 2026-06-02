@@ -24,23 +24,23 @@ var isDark = false;
 function switchMode() {
     isDark = !isDark;
     document.body.classList.toggle('dark', isDark);
-    var lightPill  = document.getElementById('light-pill');
-    var darkPill   = document.getElementById('dark-pill');
-    var moonIcon   = document.getElementById('moon-icon');
-    var darkLabel  = document.getElementById('dark-label');
+    var lightPill = document.getElementById('light-pill');
+    var darkPill = document.getElementById('dark-pill');
+    var moonIcon = document.getElementById('moon-icon');
+    var darkLabel = document.getElementById('dark-label');
     if (isDark) {
         lightPill.style.background = 'transparent';
-        lightPill.querySelector('i').style.color   = '#888';
+        lightPill.querySelector('i').style.color = '#888';
         lightPill.querySelector('span').style.color = '#888';
         darkPill.style.background = '#3a3a3a';
-        moonIcon.style.color  = '#fff';
+        moonIcon.style.color = '#fff';
         darkLabel.style.color = '#fff';
     } else {
         lightPill.style.background = '#fff';
-        lightPill.querySelector('i').style.color   = '#1a1a1a';
+        lightPill.querySelector('i').style.color = '#1a1a1a';
         lightPill.querySelector('span').style.color = '#1a1a1a';
         darkPill.style.background = 'transparent';
-        moonIcon.style.color  = '#888';
+        moonIcon.style.color = '#888';
         darkLabel.style.color = '#888';
     }
 }
@@ -48,10 +48,10 @@ function switchMode() {
 /* ============================================================
    DRAG-AND-DROP
    ============================================================ */
-var dragCard       = null;   // the card element being dragged
-var dragSource     = null;   // the .cards container it came from
-var ghostEl        = null;   // translucent visual clone
-var dropIndicator  = null;   // blue line that shows insert position
+var dragCard = null;   // the card element being dragged
+var dragSource = null;   // the .cards container it came from
+var ghostEl = null;   // translucent visual clone
+var dropIndicator = null;   // blue line that shows insert position
 
 /* --- helpers --- */
 function getColumnCards(col) {
@@ -64,20 +64,20 @@ function getColumns() {
 
 /* Update every column-title count, e.g. "To do (3)" */
 function updateCounts() {
-    getColumns().forEach(function(col) {
-        var title    = col.querySelector('.column-title');
-        var cards    = col.querySelectorAll('.cards .card');
-        var text     = title.textContent.replace(/\(\d+\)/, '(' + cards.length + ')');
+    getColumns().forEach(function (col) {
+        var title = col.querySelector('.column-title');
+        var cards = col.querySelectorAll('.cards .card');
+        var text = title.textContent.replace(/\(\d+\)/, '(' + cards.length + ')');
         title.textContent = text;
     });
 }
 
 /* Show/hide the "Drag your task here…" placeholder */
 function refreshPlaceholders() {
-    getColumns().forEach(function(col) {
-        var cards   = getColumnCards(col);
-        var ph      = col.querySelector('.drag-placeholder');
-        var count   = cards.querySelectorAll('.card').length;
+    getColumns().forEach(function (col) {
+        var cards = getColumnCards(col);
+        var ph = col.querySelector('.drag-placeholder');
+        var count = cards.querySelectorAll('.card').length;
         if (ph) {
             ph.style.display = (count === 0 || (count === 0 && dragCard)) ? 'block' : 'none';
         }
@@ -96,8 +96,8 @@ function ensureDropIndicator() {
 /* Find the card (or null) that the pointer is above */
 function getCardAfter(container, y) {
     var draggableCards = Array.from(container.querySelectorAll('.card:not(.dragging)'));
-    return draggableCards.reduce(function(closest, child) {
-        var box    = child.getBoundingClientRect();
+    return draggableCards.reduce(function (closest, child) {
+        var box = child.getBoundingClientRect();
         var offset = y - box.top - box.height / 2;
         if (offset < 0 && offset > closest.offset) {
             return { offset: offset, element: child };
@@ -117,7 +117,7 @@ function onMouseDown(e) {
 
     e.preventDefault();
 
-    dragCard   = card;
+    dragCard = card;
     dragSource = card.parentElement;
 
     var rect = card.getBoundingClientRect();
@@ -125,10 +125,10 @@ function onMouseDown(e) {
     /* Ghost */
     ghostEl = card.cloneNode(true);
     ghostEl.classList.add('drag-ghost');
-    ghostEl.style.width  = rect.width  + 'px';
+    ghostEl.style.width = rect.width + 'px';
     ghostEl.style.height = rect.height + 'px';
-    ghostEl.style.left   = rect.left   + 'px';
-    ghostEl.style.top    = rect.top    + 'px';
+    ghostEl.style.left = rect.left + 'px';
+    ghostEl.style.top = rect.top + 'px';
     document.body.appendChild(ghostEl);
 
     /* Offset of pointer inside card */
@@ -141,7 +141,7 @@ function onMouseDown(e) {
     ensureDropIndicator();
 
     document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseup',   onMouseUp);
+    document.addEventListener('mouseup', onMouseUp);
 }
 
 function onMouseMove(e) {
@@ -149,7 +149,7 @@ function onMouseMove(e) {
 
     /* Move ghost */
     ghostEl.style.left = (e.clientX - ghostEl._ox) + 'px';
-    ghostEl.style.top  = (e.clientY - ghostEl._oy) + 'px';
+    ghostEl.style.top = (e.clientY - ghostEl._oy) + 'px';
 
     /* Find which .cards container is under pointer */
     ghostEl.style.pointerEvents = 'none';
@@ -172,7 +172,7 @@ function onMouseMove(e) {
 
 function onMouseUp(e) {
     document.removeEventListener('mousemove', onMouseMove);
-    document.removeEventListener('mouseup',   onMouseUp);
+    document.removeEventListener('mouseup', onMouseUp);
 
     if (!dragCard) return;
 
@@ -189,7 +189,7 @@ function onMouseUp(e) {
     updateCounts();
     refreshPlaceholders();
 
-    dragCard   = null;
+    dragCard = null;
     dragSource = null;
 }
 
