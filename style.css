@@ -953,3 +953,678 @@ body.dark .drag-placeholder.highlight {
     margin: 2px 0;
     pointer-events: none;
 }
+
+/* ============================================================
+   RESPONSIVE OVERRIDES
+   Original rules are untouched above.
+   Key principle: sidebar-dark and projects use position:fixed
+   so they NEVER move during drag or scroll, on any screen size.
+   The <section> is offset with margin-left to compensate.
+   ============================================================ */
+
+/* ── Global base — desktop-first, applies to ALL widths ─────
+   Variables used by every breakpoint:
+     --sb-w  : sidebar width
+     --pj-w  : projects panel width
+   ──────────────────────────────────────────────────────────── */
+
+html, body {
+    height: 100%;
+}
+
+/* Kill the hard-coded em heights and negative margins entirely */
+.section {
+    display: block;       /* grid is replaced by fixed panels + margin offset */
+    min-height: 100vh;
+}
+
+/* ── SIDEBAR: always fixed to the left edge ── */
+.sidebar-dark {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 72px;          /* --sb-w default */
+    height: 100vh;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 16px 8px;
+    overflow: hidden;
+}
+
+/* Sign-out icon pinned to the bottom of the fixed sidebar */
+.return {
+    position: relative;
+    bottom: auto;
+    margin-top: auto;     /* pushes it down to the bottom */
+}
+
+/* ── PROJECTS PANEL: fixed, sitting right of the sidebar ── */
+.projects {
+    position: fixed;
+    top: 0;
+    left: 72px;           /* matches --sb-w */
+    width: 230px;         /* --pj-w default */
+    height: 100vh;
+    z-index: 99;
+    margin-left: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Toggle always pinned to the bottom of the projects panel */
+#toggle-track {
+    position: relative;
+    top: auto;
+    margin-top: auto;     /* flex pushes it to the very bottom */
+    padding-bottom: 16px;
+    align-self: flex-start;
+    flex-shrink: 0;
+}
+
+/* Header and nav items in projects should not shrink */
+.header,
+.teams,
+.projects-dropdown,
+.projects-list {
+    flex-shrink: 0;
+    width: 100%;
+}
+
+/* ── MAIN SECTION: offset so it clears both fixed panels ── */
+section {
+    margin-left: calc(72px + 230px);   /* sb-w + pj-w */
+    min-height: 100vh;
+    width: calc(100vw - 72px - 230px);
+}
+
+.nav {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    margin-left: 0;
+}
+
+/* Body-head width fix (was hardcoded) */
+.body-head {
+    height: auto;
+}
+
+/* Board fills available width */
+.board {
+    max-width: 100%;
+}
+
+
+/* ============================================================
+   2XL  ≥ 1600px
+   ============================================================ */
+@media (min-width: 1600px) {
+
+    .sidebar-dark {
+        width: 80px;
+    }
+
+    .projects {
+        left: 80px;
+        width: 260px;
+        padding: 24px 20px;
+    }
+
+    section {
+        margin-left: calc(80px + 260px);
+        width: calc(100vw - 80px - 260px);
+    }
+
+    .header h1 {
+        font-size: 32px;
+    }
+
+    .body-head h1 {
+        font-size: 24px;
+    }
+
+    .board {
+        padding: 24px;
+    }
+
+    .sidebar-dark ul li {
+        padding-bottom: 52px;
+    }
+}
+
+
+/* ============================================================
+   XL  1280px – 1599px
+   ============================================================ */
+@media (min-width: 1280px) and (max-width: 1599px) {
+
+    /* defaults already cover this — just ensure board fills */
+    .board {
+        max-width: 100%;
+    }
+}
+
+
+/* ============================================================
+   LG  1024px – 1279px
+   ============================================================ */
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+    .sidebar-dark {
+        width: 64px;
+    }
+
+    .sidebar-dark i {
+        font-size: 22px;
+    }
+
+    .sidebar-dark ul li {
+        padding-bottom: 42px;
+    }
+
+    .projects {
+        left: 64px;
+        width: 200px;
+        padding: 16px 14px;
+    }
+
+    section {
+        margin-left: calc(64px + 200px);
+        width: calc(100vw - 64px - 200px);
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .body-head {
+        padding: 28px 20px;
+    }
+
+    .body-head h1 {
+        font-size: 17px;
+    }
+
+    .menu {
+        padding: 12px 20px;
+    }
+
+    hr {
+        margin: -5px 20px;
+    }
+
+    .board {
+        padding: 16px;
+    }
+
+    .column {
+        padding: 0 14px;
+    }
+}
+
+
+/* ============================================================
+   MD  768px – 1023px  — tablet landscape / small laptop
+   Projects panel hidden; sidebar stays fixed on left
+   ============================================================ */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .sidebar-dark {
+        width: 56px;
+    }
+
+    .sidebar-dark i {
+        font-size: 20px;
+    }
+
+    .sidebar-dark ul li {
+        padding-left: 5px;
+        padding-bottom: 34px;
+    }
+
+    /* Hide projects panel — too narrow */
+    .projects {
+        display: none;
+    }
+
+    section {
+        margin-left: 56px;
+        width: calc(100vw - 56px);
+    }
+
+    .nav {
+        width: 100%;
+    }
+
+    .body-head {
+        padding: 20px 16px;
+    }
+
+    .body-head h1 {
+        font-size: 15px;
+    }
+
+    .nav-list {
+        gap: 14px;
+    }
+
+    .menu {
+        padding: 10px 16px;
+        flex-wrap: wrap;
+        gap: 8px;
+        height: auto;
+    }
+
+    .menu-1 {
+        width: auto;
+        gap: 16px;
+    }
+
+    .menu-2 {
+        gap: 12px;
+    }
+
+    hr {
+        margin: -5px 16px;
+    }
+
+    .board {
+        padding: 14px;
+        overflow-x: auto;
+    }
+
+    .column {
+        min-width: 200px;
+        padding: 0 12px;
+    }
+}
+
+
+/* ============================================================
+   SM  480px – 767px  — tablet portrait
+   Sidebar becomes a fixed bottom bar; projects collapses
+   ============================================================ */
+@media (min-width: 480px) and (max-width: 767px) {
+
+    /* Sidebar → fixed bottom nav */
+    .sidebar-dark {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 54px;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 8px;
+        z-index: 200;
+    }
+
+    .sidebar-dark .icon {
+        height: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .sidebar-dark ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0;
+    }
+
+    .sidebar-dark ul li {
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sidebar-dark i {
+        font-size: 20px;
+    }
+
+    .return {
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Projects: fixed top strip */
+    .projects {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: auto;
+        max-height: 54px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 0 16px;
+        border-bottom: 1px solid var(--hr-color);
+        overflow: visible;
+        z-index: 150;
+    }
+
+    .header {
+        width: auto;
+        margin: 0;
+        flex-shrink: 0;
+        height: auto;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    .header h1 {
+        font-size: 18px;
+    }
+
+    .teams,
+    .projects-dropdown,
+    .projects-list,
+    #toggle-track {
+        display: none !important;
+    }
+
+    /* Main section: clear both top strip and bottom nav */
+    section {
+        margin-left: 0;
+        width: 100%;
+        padding-top: 54px;
+        padding-bottom: 62px;
+    }
+
+    .nav {
+        width: 100%;
+        min-height: calc(100vh - 108px);
+    }
+
+    .body-head {
+        padding: 14px 16px;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .body-head h1 {
+        font-size: 15px;
+    }
+
+    .nav-list {
+        gap: 10px;
+    }
+
+    .menu {
+        padding: 8px 16px;
+        flex-wrap: wrap;
+        gap: 8px;
+        height: auto;
+    }
+
+    .menu-1 {
+        width: 100%;
+        height: auto;
+        gap: 16px;
+    }
+
+    .menu-2 {
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .menu-2 button {
+        width: 120px;
+        height: 34px;
+        margin-top: 0;
+        font-size: 12px;
+    }
+
+    hr {
+        margin: -5px 16px;
+    }
+
+    .board {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        padding: 12px 16px;
+        gap: 14px;
+    }
+
+    .column {
+        border-right: none;
+        border-bottom: 2px dashed var(--board-border);
+        padding: 0 0 14px;
+    }
+
+    .column:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .column:first-child {
+        padding-left: 0;
+    }
+}
+
+
+/* ============================================================
+   XS  < 480px  — mobile phones
+   ============================================================ */
+@media (max-width: 479px) {
+
+    /* Sidebar → fixed bottom nav */
+    .sidebar-dark {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 52px;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 4px;
+        z-index: 200;
+    }
+
+    .sidebar-dark .icon {
+        height: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .sidebar-dark ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .sidebar-dark ul li {
+        width: 34px;
+        height: 34px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sidebar-dark i {
+        font-size: 18px;
+    }
+
+    .return {
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Projects: fixed top strip */
+    .projects {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: auto;
+        max-height: 50px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 0 14px;
+        border-bottom: 1px solid var(--hr-color);
+        overflow: visible;
+        z-index: 150;
+    }
+
+    .header {
+        width: 100%;
+        margin: 0;
+        height: auto;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    .header h1 {
+        font-size: 17px;
+    }
+
+    .teams,
+    .projects-dropdown,
+    .projects-list,
+    #toggle-track {
+        display: none !important;
+    }
+
+    /* Main section: clear top strip and bottom nav */
+    section {
+        margin-left: 0;
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 58px;
+    }
+
+    .nav {
+        width: 100%;
+        min-height: calc(100vh - 102px);
+    }
+
+    .body-head {
+        padding: 12px 14px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .body-head h1 {
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+
+    .nav-list {
+        gap: 8px;
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .nav-list a span {
+        display: none;
+    }
+
+    .menu {
+        padding: 6px 14px;
+        flex-direction: column;
+        gap: 8px;
+        height: auto;
+    }
+
+    .menu-1 {
+        width: 100%;
+        height: auto;
+        gap: 12px;
+    }
+
+    .menu-1 a span {
+        font-size: 13px;
+    }
+
+    .menu-2 {
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .menu-2 button {
+        width: 108px;
+        height: 32px;
+        margin-top: 0;
+        font-size: 12px;
+        padding: 0 10px;
+    }
+
+    hr {
+        margin: -4px 14px;
+    }
+
+    .board {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        padding: 10px 14px;
+        gap: 12px;
+    }
+
+    .column {
+        border-right: none;
+        border-bottom: 2px dashed var(--board-border);
+        padding: 0 0 12px;
+    }
+
+    .column:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .column:first-child {
+        padding-left: 0;
+    }
+
+    .column-title {
+        font-size: 13px;
+    }
+
+    .card {
+        padding: 14px 14px 11px;
+    }
+
+    .card-title {
+        font-size: 13px;
+    }
+
+    .card-subtitle {
+        font-size: 11px;
+    }
+
+    .date-badge {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+
+    .add-task-btn {
+        font-size: 12px;
+    }
+}
